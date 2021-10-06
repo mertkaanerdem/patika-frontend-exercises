@@ -1,0 +1,19 @@
+{
+  "name": "js-denemeleri",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "javascriptteki bazı fonksiyonları hatırlamak için deneme dosyası",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"  },
+  "keywords": [
+    "javascript",
+    "functions"
+  ],
+  "author": "Mertkaan Erdem",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.22.0",
+    "node-fetch": "^3.0.0"
+  }
+}
