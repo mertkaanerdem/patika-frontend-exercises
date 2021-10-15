@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JQuery Example for Rendering</title>
+  </head>
+  <body>
+    <h3>
+      JQuery ve React'ta 0'dan 1'e yükseltme yapılınca rendering işlemini
+      inceledik. React 1 olunca tekrar render etmezken. jQuery her tetiklemede
+      render işlemi gerçekletştirir. En önemli fark da bu zaten
+    </h3>
+    <h1>0</h1>
+    <button class="increase">Increase to 1</button>
+    <br />
+    <hr />
+    <br />
+    <h2></h2>
+    <button class="naming">Get the Name</button>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script>
+    $(() => {
+      //increase fn
+      $(".increase").on("click", () => {
+        $("h1").html(1);
+      });
+
+      //Getting Name
+      const gettingName = () => {
+        $("h2").html("Mertkaan Erdem");
+      };
+
+      $(".naming").on("click", gettingName);
+    });
+  </script>
+</html>
