@@ -10,7 +10,7 @@ function InputAdvancedEx() {
   };
   return (
     <>
-      <h1>Advanced Input Example</h1>
+      <h3>Advanced Input Example</h3>
       <hr />
       <input
         name="name"
@@ -25,15 +25,16 @@ function InputAdvancedEx() {
         onChange={gettingInputs}
       />
       <input
+        type="number"
         name="age"
         placeholder="Guess my age"
         value={form.age}
         onChange={gettingInputs}
       />
       <hr />
-      <h5>
-        {form.name} {form.surname} {form.age}
-      </h5>
+      <h4>
+        {form.name} {form.surname.toUpperCase()} {form.age}
+      </h4>
     </>
   );
 }
