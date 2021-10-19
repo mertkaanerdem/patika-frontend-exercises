@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      border: 1px solid red;
+      margin: 10px;
+      padding: 20px;
+      width: 100px;
+      height: 100px;
+    }
+    #sonuc {
+      width: 200px;
+      height: 100px;
+      background-color: aqua;
+      color: black;
+    }
+  </style>
+  <body>
+    <form>
+      <label>
+        <input
+          type="number"
+          id="agilSayisi"
+          required
+          value=""
+          placeholder="Ağıl Sayısı"
+        />
+      </label>
+      <br />
+      <br />
+      <label>
+        <input
+          type="number"
+          id="agilKapasitesi"
+          required
+          value=""
+          placeholder="Ağıl Kapasitesi"
+        />
+      </label>
+      <br />
+      <br />
+      <label>
+        <input
+          type="number"
+          id="hayvanSayisi"
+          required
+          value=""
+          placeholder="Hayvan Sayısı"
+        />
+      </label>
+    </form>
+    <button type="submit" id="hesapla">Hesapla</button>
+    <p id="sonuc"></p>
+
+    <script>
+      document.getElementById("hesapla").onclick = hesapla;
+
+      function hesapla() {
+        var agilSayisi = document.getElementById("agilSayisi");
+        var agilKapasitesi = document.getElementById("agilKapasitesi");
+        var hayvanSayisi = document.getElementById("hayvanSayisi");
+        var sonuc = document.getElementById("sonuc");
+
+        //   const kalan = () => {
+        //     let kalan = hayvanSayisi.value - agilKapasitesi.value;
+        //     console.log("kalan", kalan);
+
+        //     return kalan;
+        //   };
+
+        for (var i = agilSayisi.value; i > 0; i--) {
+          if (hayvanSayisi.value > agilKapasitesi.value) {
+            console.log("hayvan sayısı büyük");
+
+            sonuc.innerHTML += `<div class="box">
+              <p><span>${i}</span>. Ağıl</p>
+              <br>
+              <p>${agilKapasitesi.value}</p>
+              </div>`;
+
+            // kalan();
+            console.log(hayvanSayisi.value);
+          }
+          hayvanSayisi.value = hayvanSayisi.value - agilKapasitesi.value;
+
+          if (
+            hayvanSayisi.value <= agilKapasitesi.value &&
+            hayvanSayisi.value > 0
+          ) {
+            console.log("hayvan sayısı büyük değil");
+
+            sonuc.innerHTML += `<div class="box">
+                      <p><span>${i}</span>. Ağıl</p>
+                      <br>
+                      <p>${hayvanSayisi.value}</p>
+                      </div>`;
+          } else if (hayvanSayisi.value <= 0) {
+            console.log("hayvan sayısı büyük değil");
+
+            sonuc.innerHTML += `<div class="box">
+                      <p><span>${i}</span>. Ağıl</p>
+                      <br>
+                      <p>0</p>
+                      </div>`;
+          }
+        }
+        // if (hayvanSayisi.value <= agilKapasitesi.value)
+        agilSayisi.value = "";
+        agilKapasitesi.value = "";
+        hayvanSayisi.value = "";
+      }
+
+      /* sonuc.innerHTML += `
+          <div class="box">
+            <p><span>${i}</span>. Ağıl</p>
+            <br />
+            <p>${agilKapasitesi.value}</p>
+          </div>
+          `; */
+    </script>
+  </body>
+</html>

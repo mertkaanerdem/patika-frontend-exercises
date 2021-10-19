@@ -3,12 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 // import App from './App';
 // import InputEx from "./ExampleComponents/InputEx";
-import InputAdvancedEx from "./ExampleComponents/InputAdvancedEx";
+// import InputAdvancedEx from "./ExampleComponents/InputAdvancedEx";
+// import UseEffectEx from "./ExampleComponents/UseEffectEx";
+import ComponentUnmount from "./ExampleComponents/ComponentUnmoutEx/ComponentUnmountEx";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <InputAdvancedEx />
+    <ComponentUnmount />
   </React.StrictMode>,
   document.getElementById("root")
 );
