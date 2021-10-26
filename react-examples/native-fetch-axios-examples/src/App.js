@@ -1,11 +1,11 @@
 import "./App.css";
 
-import Users from "./components/nativeFetch/Users";
-
+// import Users from "./components/nativeFetch/Users";
+import UsersAxios from "./components/Axios/UsersAxios";
 function App() {
   return (
     <div className="App">
-      <Users />
+      <UsersAxios />
     </div>
   );
 }

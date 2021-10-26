@@ -1,14 +1,14 @@
-//TODO:NativeFetch işlemi
+//TODO:Axios işlemi
+import axios from "axios";
 import { useEffect, useState } from "react";
 
-function Users() {
+function UsersAxios() {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((data) => setUsers(data)) //TODO:burada users state içine datayı setliyoruz
+    axios("https://jsonplaceholder.typicode.com/users")
+      .then((response) => setUsers(response.data)) //TODO:burada json() yapmadan direkt gelen cevap içinden datayı çekiyoruz
       .catch((e) => console.log(e))
       .finally(() => setIsLoading(false));
   }, []);
@@ -27,13 +27,15 @@ function Users() {
 
   return (
     <div>
-      <h1>Users</h1>
+      <h1>Users Axios</h1>
       {isLoading && <div className="loading">Users are loading</div>}
       {users.map((user) => (
-        <p key={user.id}>{user.name}</p>
+        <>
+          <p key={user.id}>{user.name}</p>
+        </>
       ))}
     </div>
   );
 }
 
-export default Users;
+export default UsersAxios;
