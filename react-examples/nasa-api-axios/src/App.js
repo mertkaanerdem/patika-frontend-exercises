@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
+import Button from "@mui/material/Button";
+// import { InsertPhotoIcon } from "@mui/icons-material";
+
 import axios from "axios";
 
 function App() {
   const [cosmos, setCosmos] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [isImage, setImage] = useState(false);
 
   useEffect(() => {
     axios(
@@ -16,6 +20,10 @@ function App() {
       .finally(() => setIsLoading(false));
   }, []);
 
+  const openImage = () => {
+    setImage((prevCheckImage) => !prevCheckImage);
+  }; //TODO:toggle with boolean
+
   return (
     <div className="App">
       {isLoading && <div>Loading...</div>}
@@ -23,7 +31,9 @@ function App() {
       <p>{cosmos.date}</p>
       <p>{cosmos.copyright}</p>
       <p>{cosmos.explanation}</p>
-      <img src={cosmos.url} alt={cosmos.title} width="200" />
+      {isImage && <img src={cosmos.url} alt={cosmos.title} width="200" />}
+
+      <Button onClick={openImage}>LALALA</Button>
     </div>
   );
 }
