@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
-import { Button, Switch } from "@mui/material";
+import { Box, Typography, Switch, Button } from "@mui/material";
 // import { InsertPhotoIcon } from "@mui/icons-material";
 
 import { IconButton } from "@mui/material";
@@ -33,30 +33,44 @@ function App() {
   }; //TODO:toggle with boolean
 
   return (
-    <div className={checked ? "Dark" : "Light"}>
-      <Switch
-        checked={checked}
-        onChange={handleChange}
-        inputProps={{ "aria-label": "controlled" }}
-      />
-      {isLoading && <div>Loading...</div>}
-      <p>{cosmos.title}</p>
-      <p>{cosmos.date}</p>
-      <p>{cosmos.explanation}</p>
-      {isImage && <img src={cosmos.url} alt={cosmos.title} width="200" />}
-      <Button
-        onClick={openImage}
-        variant="contained"
-        size="large"
-        endIcon={<PhotoIcon />}
-      >
-        TOGGLE
-      </Button>
-      <p>{cosmos.copyright}</p>
-      <IconButton aria-label="fingerprint" size="large">
-        <Fingerprint fontSize="inherit" />
-      </IconButton>
-    </div>
+    <Box className={checked ? "Dark" : "Light"}>
+      <Box sx={{ width: "100%", maxWidth: 768 }}>
+        <Switch
+          checked={checked}
+          onChange={handleChange}
+          inputProps={{ "aria-label": "controlled" }}
+        />
+        {isLoading && <div>Loading...</div>}
+        <Typography variant="h3" component="h3">
+          {cosmos.title}
+        </Typography>
+
+        <Typography variant="overline" display="block" gutterBottom>
+          {cosmos.date}
+        </Typography>
+
+        <Typography className="explanation" variant="body1" gutterBottom>
+          {cosmos.explanation}
+        </Typography>
+        {isImage && (
+          <img className="image" src={cosmos.url} alt={cosmos.title} />
+        )}
+        <Button
+          onClick={openImage}
+          variant="contained"
+          size="large"
+          endIcon={<PhotoIcon />}
+        >
+          TOGGLE
+        </Button>
+        <p>{cosmos.copyright}</p>
+        <IconButton aria-label="fingerprint" size="large">
+          <a href="https://github.com/mertkaanerdem" target="_blank">
+            <Fingerprint fontSize="inherit" />
+          </a>
+        </IconButton>
+      </Box>
+    </Box>
   );
 }
 

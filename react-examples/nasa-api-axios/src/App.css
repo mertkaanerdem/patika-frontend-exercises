@@ -3,6 +3,9 @@
   color: white;
   background-color: #282c34;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  z-index: -1;
 }
 
 .Light {
@@ -10,4 +13,30 @@
   background-color: white;
   color: #282c34;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  z-index: -1;
+}
+
+.image {
+  z-index: 0;
+  width: auto;
+  height: 100vh;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  opacity: 1;
+}
+
+.explanation {
+  padding: 20px 20px;
+  text-align: justify center;
+  box-shadow: inset 0px 0px 10px 1px #ccc;
+}
+
+a {
+  all: unset;
 }
