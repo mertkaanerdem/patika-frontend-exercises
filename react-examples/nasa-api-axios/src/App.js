@@ -64,11 +64,13 @@ function App() {
           TOGGLE
         </Button>
         <p>{cosmos.copyright}</p>
-        <IconButton aria-label="fingerprint" size="large">
-          <a href="https://github.com/mertkaanerdem" target="_blank">
-            <Fingerprint fontSize="inherit" />
-          </a>
-        </IconButton>
+        <Box className="finger">
+          <IconButton aria-label="fingerprint" size="large">
+            <a href="https://github.com/mertkaanerdem" target="_blank">
+              <Fingerprint fontSize="inherit" />
+            </a>
+          </IconButton>
+        </Box>
       </Box>
     </Box>
   );
